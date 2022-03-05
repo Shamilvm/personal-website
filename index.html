@@ -45,6 +45,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -391,9 +393,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					
 				</div>
-				<div class="col-md-5 exp-info-right" style="padding-bottom: 10px;">
+				<!-- <div class="col-md-5 exp-info-right" style="padding-bottom: 10px;">
 					<h4>experience</h4>
-				</div>
+				</div> -->
 				<!-- <div class="clearfix"></div> -->
 			</div>
 		</div>
@@ -472,22 +474,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<h3 class="title">Contact</h3>
 			<div class="contact-us">
-				<form action="#" method="post">
+				<form id="submit-form" action="">
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
 						<input type="text" name="Name" placeholder="Name" required="">
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
-						<input type="text" name="Last Name" placeholder="Last Name" required="">
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
 						<input type="email" name="Email" placeholder="Email" required="">
+					</div>
+
+					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
+						<input type="text" name="Phone" placeholder="Phone" required="">
 
 					</div>
 
 					<div class="col-md-6 col-sm-6 col-xs-6 styled-input">
 
-						<input type="text" name="phone" placeholder="phone" required="">
+						<input type="text" name="Place" placeholder="Place" required="">
 
 					</div>
 					<div class="clearfix"> </div>
@@ -624,6 +626,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 	<!-- //here ends scrolling icon -->
+	<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbxhsZFno5Fx38VLq_OeiAsOMl158JWYuGDaP-yuD3nJHWl8mGIiWlaU0IAlITbf8nid/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
